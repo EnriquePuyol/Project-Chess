@@ -11,4 +11,14 @@ public class CreatureData : ScriptableObject
 
     public int movementLimit;
 
+    public int health;
+    public int mana;
+
+    public int attackDamage;
+    public int startingMana;
+    public int armor;
+    public int resistance;
+
+    public int manaPerAttack;
+
 }
