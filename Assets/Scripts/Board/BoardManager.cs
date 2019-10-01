@@ -411,11 +411,159 @@ public class BoardManager : MonoBehaviour
         }
         else if (data.movementType == CreatureData.MovementTypes.Diagonal)
         {
+            if(currentX < nextX && currentY < nextY)
+            {
+                int counter = 1;
+                for(int i = currentX + 1; i<= nextX; i++)
+                {
+                    int pos =((currentY + counter) * 6) + currentX + counter;
 
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else if (currentX < nextX && currentY > nextY)
+            {
+                int counter = 1;
+                for (int i = currentX + 1; i <= nextX; i++)
+                {
+                    int pos = ((currentY - counter) * 6) + currentX + counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else if (currentX > nextX && currentY < nextY)
+            {
+                int counter = 1;
+                for (int i = currentX - 1; i >= nextX; i--)
+                {
+                    int pos = ((currentY + counter) * 6) + currentX - counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else
+            {
+                int counter = 1;
+                for (int i = currentX - 1; i >= nextX; i--)
+                {
+                    int pos = ((currentY - counter) * 6) + currentX - counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
         }
         else if (data.movementType == CreatureData.MovementTypes.Reina)
         {
+            if (currentX != nextX && currentY == nextY)
+            {
+                if (currentX < nextX)
+                {
+                    for (int i = currentX + 1; i <= nextX; i++)
+                    {
+                        int pos = (currentY * 6) + i;
 
+                        if (!cells[pos].isEmpty)
+                            return false;
+                    }
+                }
+                else
+                {
+                    for (int i = currentX - 1; i >= nextX; i--)
+                    {
+                        int pos = (currentY * 6) + i;
+
+                        if (!cells[pos].isEmpty)
+                            return false;
+                    }
+                }
+            }
+            else if (currentX == nextX && currentY != nextY)
+            {
+                if (currentY < nextY)
+                {
+                    for (int i = currentY + 1; i <= nextY; i++)
+                    {
+                        int pos = (i * 6) + currentX;
+
+                        if (!cells[pos].isEmpty)
+                            return false;
+                    }
+                }
+                else
+                {
+                    for (int i = currentY - 1; i >= nextY; i--)
+                    {
+                        int pos = (i * 6) + currentX;
+
+                        if (!cells[pos].isEmpty)
+                            return false;
+                    }
+                }
+            }
+            else if (currentX < nextX && currentY < nextY)
+            {
+                int counter = 1;
+                for (int i = currentX + 1; i <= nextX; i++)
+                {
+                    int pos = ((currentY + counter) * 6) + currentX + counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else if (currentX < nextX && currentY > nextY)
+            {
+                int counter = 1;
+                for (int i = currentX + 1; i <= nextX; i++)
+                {
+                    int pos = ((currentY - counter) * 6) + currentX + counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else if (currentX > nextX && currentY < nextY)
+            {
+                int counter = 1;
+                for (int i = currentX - 1; i >= nextX; i--)
+                {
+                    int pos = ((currentY + counter) * 6) + currentX - counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
+            else
+            {
+                int counter = 1;
+                for (int i = currentX - 1; i >= nextX; i--)
+                {
+                    int pos = ((currentY - counter) * 6) + currentX - counter;
+
+                    if (!cells[pos].isEmpty)
+                        return false;
+
+                    counter++;
+                }
+            }
         }
         else if (data.movementType == CreatureData.MovementTypes.Salto)
         {
