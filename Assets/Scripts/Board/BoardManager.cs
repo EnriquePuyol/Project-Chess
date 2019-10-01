@@ -279,7 +279,13 @@ public class BoardManager : MonoBehaviour
                 int diffY = Mathf.Abs(currentY - nextY);
 
                 if (diffX == diffY && diffX <= data.movementLimit)
-                    return true;
+                {
+                    if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                    {
+                        ChangeOccupation(currentX, currentY, nextX, nextY);
+                        return true;
+                    }
+                }
             }
         }
         else if (data.movementType == CreatureData.MovementTypes.Reina)
@@ -289,14 +295,26 @@ public class BoardManager : MonoBehaviour
                 int diff = Mathf.Abs(currentX - nextX);
 
                 if (diff <= data.movementLimit)
-                    return true;
+                {
+                    if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                    {
+                        ChangeOccupation(currentX, currentY, nextX, nextY);
+                        return true;
+                    }
+                }
             }
             else if (currentX == nextX && currentY != nextY)
             {
                 int diff = Mathf.Abs(currentY - nextY);
 
                 if (diff <= data.movementLimit)
-                    return true;
+                {
+                    if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                    {
+                        ChangeOccupation(currentX, currentY, nextX, nextY);
+                        return true;
+                    }
+                }
             }
             else if (currentX != nextX && currentY != nextY)
             {
@@ -304,7 +322,13 @@ public class BoardManager : MonoBehaviour
                 int diffY = Mathf.Abs(currentY - nextY);
 
                 if (diffX == diffY && diffX <= data.movementLimit)
-                    return true;
+                {
+                    if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                    {
+                        ChangeOccupation(currentX, currentY, nextX, nextY);
+                        return true;
+                    }
+                }
             }
         }
         else if (data.movementType == CreatureData.MovementTypes.Salto)
@@ -313,10 +337,22 @@ public class BoardManager : MonoBehaviour
             int diffY = Mathf.Abs(currentY - nextY);
 
             if (currentX != nextX && diffY == 1 && diffX <= data.movementLimit)
-                return true;
+            {
+                if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                {
+                    ChangeOccupation(currentX, currentY, nextX, nextY);
+                    return true;
+                }
+            }
 
             if (currentY != nextY && diffX == 1 && diffY <= data.movementLimit)
-                return true;
+            {
+                if (CheckEmptyMovement(data, currentX, currentY, nextX, nextY))
+                {
+                    ChangeOccupation(currentX, currentY, nextX, nextY);
+                    return true;
+                }
+            }
         }
 
         return false;
@@ -381,9 +417,15 @@ public class BoardManager : MonoBehaviour
         {
 
         }
-        else if (data.movementType == CreatureData.MovementTypes.Cruceta)
+        else if (data.movementType == CreatureData.MovementTypes.Salto)
         {
+            int diffX = nextX - currentX;
+            int diffY = nextY - currentY;
 
+            int pos = (currentY * 6 + diffY * 6) + (currentX + diffX);
+
+            if (!cells[pos].isEmpty)
+                return false;
         }
 
         return true;
