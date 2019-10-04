@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class uiPiece : MonoBehaviour
 {
-
     public GameObject UI_prefab;
 
     private Image UI_Image;

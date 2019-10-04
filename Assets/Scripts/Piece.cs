@@ -10,6 +10,9 @@ public class Piece : MonoBehaviour
 
     int layerMask;
 
+    int turnPiece;
+    int currentHealth;
+
     void Start()
     {
         currentPos.x = transform.position.x;
