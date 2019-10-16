@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class TurnManager : MonoBehaviour
 {
+    public enum TurnPhases { MOVE, ATTACK, END };
+
     int currentTurn;
+    TurnPhases currentTurnPhase;
 
     private static TurnManager instance;
 
@@ -36,6 +39,8 @@ public class TurnManager : MonoBehaviour
             currentTurn += 1;
         else
             currentTurn -= 1;
+
+        currentTurnPhase = TurnPhases.MOVE;
     }
 
     public bool IsPieceTurn(int pieceTurn)
@@ -46,4 +51,16 @@ public class TurnManager : MonoBehaviour
         return false;
     }
 
+    public TurnPhases GetTurnPhase()
+    {
+        return currentTurnPhase;
+    }
+
+    public void NextTurnPhase()
+    {
+        currentTurnPhase++;
+
+        if (currentTurnPhase == TurnPhases.END)
+            ChangeTurn();
+    }
 }

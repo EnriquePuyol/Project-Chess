@@ -4,10 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    public enum turnPhases { Move, Attack};
-
-    public turnPhases turnPhase;
-
+    [SerializeField]
     private GameObject[] pieces;
 
     public int playerTurn;
@@ -29,4 +26,18 @@ public class PlayerManager : MonoBehaviour
 
         instance = this;
     }
+
+    void Start()
+    {
+        SetPiecesTurn();
+    }
+
+    void SetPiecesTurn()
+    {
+        for (int i = 0; i < pieces.Length; i++)
+        {
+            pieces[i].GetComponent<Piece>().turnPiece = playerTurn;
+        }
+    }
+
 }
