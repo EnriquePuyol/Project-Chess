@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using TMPro;
 
 public class TurnManager : MonoBehaviour
 {
@@ -8,6 +7,8 @@ public class TurnManager : MonoBehaviour
 
     int currentTurn;
     TurnPhases currentTurnPhase;
+
+    public TextMeshProUGUI turnDetails;
 
     private static TurnManager instance;
 
@@ -31,6 +32,9 @@ public class TurnManager : MonoBehaviour
     void Start()
     {
         currentTurn = 1;
+        currentTurnPhase = TurnPhases.MOVE;
+
+        UpdateTurnUI();
     }
 
     public void ChangeTurn()
@@ -62,5 +66,13 @@ public class TurnManager : MonoBehaviour
 
         if (currentTurnPhase == TurnPhases.END)
             ChangeTurn();
+
+        UpdateTurnUI();
     }
+
+    void UpdateTurnUI()
+    {
+        turnDetails.text = "Current Turn: " + currentTurn + "\nCurrent Turn Phase: " + currentTurnPhase.ToString();
+    }
+
 }
