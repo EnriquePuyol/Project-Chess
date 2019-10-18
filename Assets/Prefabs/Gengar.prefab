@@ -1576,6 +1576,8 @@ GameObject:
   - component: {fileID: 1685699830959084448}
   - component: {fileID: 4365246016095351913}
   - component: {fileID: 4365246016095351912}
+  - component: {fileID: 1266838153}
+  - component: {fileID: 2505903809480471622}
   m_Layer: 0
   m_Name: Gengar
   m_TagString: Pieza
@@ -1646,7 +1648,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef80234ef16d24dabfc12230535d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 11400000, guid: afa550ec86bc1f443b4fcd48ff9ac25c, type: 2}
+  creatureData: {fileID: 11400000, guid: d5f350048feaaf54b8604e98bfeff0c2, type: 2}
+  turnPiece: 2
+--- !u!114 &1266838153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743660769556483273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54d6a015fc214744a96c0d0ca962265e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UI_prefab: {fileID: 8610282011756491271, guid: 81af13c3e4e9e0c43b37e9655a92a83e,
+    type: 3}
+--- !u!114 &2505903809480471622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5743660769556483273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8d047c732fed498570c4d40f3d83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureData: {fileID: 11400000, guid: d5f350048feaaf54b8604e98bfeff0c2, type: 2}
 --- !u!1 &5792218496208063700
 GameObject:
   m_ObjectHideFlags: 0
