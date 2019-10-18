@@ -10,6 +10,8 @@ public class Piece : MonoBehaviour
 
     int layerMask;
 
+    public int turnPiece;
+
     void Start()
     {
         currentPos.x = transform.position.x;
@@ -25,6 +27,9 @@ public class Piece : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        if (TurnManager.Instance.GetTurnPhase() != TurnManager.TurnPhases.MOVE || !TurnManager.Instance.IsPieceTurn(turnPiece))
+            return;
+
         layerMask = 1 << 9;
         // Line below makes ray ignore only this layer (right now only collides with layer 9)
         //layerMask = ~layerMask;
@@ -50,6 +55,7 @@ public class Piece : MonoBehaviour
         if (BoardManager.Instance.CheckCorrectMove(creatureData, (int)currentPos.x, (int)currentPos.y, Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.z)))
         {
             FixPosition();
+            TurnManager.Instance.NextTurnPhase();
             return;
         }
 
