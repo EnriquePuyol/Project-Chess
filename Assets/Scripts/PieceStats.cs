@@ -25,4 +25,30 @@ public class PieceStats : MonoBehaviour
         GetComponent<uiPiece>().UpdateUI(h, m);
     }
 
+    int BasicDamage()
+    {
+        return creatureData.attackDamage;
+    }
+
+    void ReceiveBasicDamage(int damage)
+    {
+        int finalDamage = Mathf.Clamp(damage - creatureData.armor, 1, 100000);
+
+        currentHealth -= finalDamage;
+    }
+
+    void AbilityDamage(int power)
+    {
+        int finalDamage = 0;
+        float finalPower = (float)power / 100.0f;
+
+        finalDamage = Mathf.FloorToInt(creatureData.attackDamage * finalPower);
+    }
+
+    void ReceiveAbilityDamage(int damage)
+    {
+        int finalDamage = Mathf.Clamp(damage - creatureData.resistance, 1, 100000);
+
+        currentHealth -= finalDamage;
+    }
 }
