@@ -10,8 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10694c77ba8b4f64382b14a2ef8df2b5, type: 3}
-  m_Name: Diagonal_Test
+  m_Name: Reina_Test
   m_EditorClassIdentifier: 
-  name: Diagonal Test
-  movementType: 2
-  movementLimit: 8
+  name: Reina Test
+  creatureType: 0
+  movementType: 1
+  movementLimit: 4
+  health: 0
+  mana: 0
+  attackDamage: 0
+  startingMana: 0
+  armor: 0
+  resistance: 0
+  manaPerAttack: 0

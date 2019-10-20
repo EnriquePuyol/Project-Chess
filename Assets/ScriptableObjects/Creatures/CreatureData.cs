@@ -3,8 +3,8 @@
 [CreateAssetMenu(fileName = "New Creature", menuName = "Creature")]
 public class CreatureData : ScriptableObject
 {
-    public enum MovementTypes { Cruceta, Reina, Diagonal, Salto };
-    public enum CreatureTypes { Naturaleza, Agua, Luz, Oscuridad, Mental, Corrupcion, TOTAL};
+    public enum MovementTypes { Cross, Queen, Diagonal, Jump };
+    public enum CreatureTypes { Nature, Water, Light, Darkness, Mental, Corruption, TOTAL};
 
     public new string name;
 

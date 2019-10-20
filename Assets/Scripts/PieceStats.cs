@@ -37,17 +37,31 @@ public class PieceStats : MonoBehaviour
         currentHealth -= finalDamage;
     }
 
-    void AbilityDamage(int power)
+    int AbilityDamage(int power)
     {
-        int finalDamage = 0;
         float finalPower = (float)power / 100.0f;
+        int finalDamage = Mathf.FloorToInt(creatureData.attackDamage * finalPower);
 
-        finalDamage = Mathf.FloorToInt(creatureData.attackDamage * finalPower);
+        return finalDamage;
     }
 
-    void ReceiveAbilityDamage(int damage)
+    void ReceiveAbilityDamage(int damage, AttackData data)
     {
-        int finalDamage = Mathf.Clamp(damage - creatureData.resistance, 1, 100000);
+        int finalDamage = 0;
+
+        int resistance = creatureData.resistance;
+        float damageMod = data.GetTypeMatchUp(creatureData.creatureType);
+
+        if (data.HasFlag(AttackData.AttackFlags.IgnoreResistances))
+        {
+            resistance = 0;
+        }
+        if (data.HasFlag(AttackData.AttackFlags.IgnoreType))
+        {
+            damageMod = 1;
+        }
+        
+        finalDamage = Mathf.Clamp(Mathf.FloorToInt(damage * damageMod) - resistance, 1, 100000);
 
         currentHealth -= finalDamage;
     }

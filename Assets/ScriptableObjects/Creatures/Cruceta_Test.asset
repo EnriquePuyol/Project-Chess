@@ -13,5 +13,13 @@ MonoBehaviour:
   m_Name: Cruceta_Test
   m_EditorClassIdentifier: 
   name: Cruceta Test
+  creatureType: 0
   movementType: 0
   movementLimit: 3
+  health: 0
+  mana: 0
+  attackDamage: 0
+  startingMana: 0
+  armor: 0
+  resistance: 0
+  manaPerAttack: 0
