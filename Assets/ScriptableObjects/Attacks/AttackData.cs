@@ -19,9 +19,9 @@ public class AttackData : ScriptableObject
 
     public int power;
 
-    public AttackFlags flags;
-    public AbilityThrowTypes thrownType;
-    public AbilityTypes abilityType;
+    public AbilityThrowTypes    thrownType;
+    public AbilityTypes         abilityType;
+    public AttackFlags          flags;
 
     public bool HasFlag (AttackFlags flag)
     {

@@ -12,12 +12,25 @@ public class Piece : MonoBehaviour
 
     public int turnPiece;
 
+    public PieceStats venusaurTest;
+    public PieceStats gengarTest;
+
     void Start()
     {
         currentPos.x = transform.position.x;
         currentPos.y = transform.position.z;
 
         BoardManager.Instance.SetStartOccupation(Mathf.FloorToInt(currentPos.x), Mathf.FloorToInt(currentPos.y));
+    }
+
+    private void Update()
+    {
+        if (TurnManager.Instance.IsPieceTurn(turnPiece) && Input.GetKeyDown(KeyCode.Space))
+        {
+            gengarTest.ReceiveAbilityDamage(venusaurTest.AbilityDamage(venusaurTest.attackData.power), venusaurTest.attackData);
+            venusaurTest.currentMana += 20;
+            venusaurTest.UpdateUI();
+        }
     }
 
     private void OnMouseOver()

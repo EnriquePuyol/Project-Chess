@@ -408,6 +408,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6076632270274288120, guid: fdb32d68b8049834db8edcce0309ce55,
+        type: 3}
+      propertyPath: gengarTest
+      value: 
+      objectReference: {fileID: 743897941}
+    - target: {fileID: 6076632270274288120, guid: fdb32d68b8049834db8edcce0309ce55,
+        type: 3}
+      propertyPath: venusaurTest
+      value: 
+      objectReference: {fileID: 862135159}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdb32d68b8049834db8edcce0309ce55, type: 3}
 --- !u!1 &511765270
@@ -633,6 +643,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnDetails: {fileID: 764331197}
+--- !u!114 &743897941 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2505903809480471622, guid: f9b6f4329fdb7484faafe17ea145e76e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4365246016475593840}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8d047c732fed498570c4d40f3d83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764331195
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +884,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 410866655}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &862135159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6819946186254998569, guid: fdb32d68b8049834db8edcce0309ce55,
+    type: 3}
+  m_PrefabInstance: {fileID: 410866655}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862135158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63e8d047c732fed498570c4d40f3d83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935547972
 GameObject:
   m_ObjectHideFlags: 0
@@ -1275,5 +1309,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4365246016095351912, guid: f9b6f4329fdb7484faafe17ea145e76e,
+        type: 3}
+      propertyPath: gengarTest
+      value: 
+      objectReference: {fileID: 743897941}
+    - target: {fileID: 4365246016095351912, guid: f9b6f4329fdb7484faafe17ea145e76e,
+        type: 3}
+      propertyPath: venusaurTest
+      value: 
+      objectReference: {fileID: 862135159}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9b6f4329fdb7484faafe17ea145e76e, type: 3}

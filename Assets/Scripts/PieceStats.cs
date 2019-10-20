@@ -4,9 +4,11 @@ using UnityEngine.UI;
 public class PieceStats : MonoBehaviour
 {
     public CreatureData creatureData;
+    public AttackData attackData;
 
     int currentHealth;
-    int currentMana;
+    //Todo: Make private
+    public int currentMana;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +19,8 @@ public class PieceStats : MonoBehaviour
         UpdateUI();
     }
 
-    void UpdateUI()
+    // Todo: Make private
+    public void UpdateUI()
     {
         float h = (float)currentHealth / (float)creatureData.health;
         float m = (float)currentMana / (float)creatureData.mana;
@@ -30,22 +33,21 @@ public class PieceStats : MonoBehaviour
         return creatureData.attackDamage;
     }
 
-    void ReceiveBasicDamage(int damage)
+    public void ReceiveBasicDamage(int damage)
     {
         int finalDamage = Mathf.Clamp(damage - creatureData.armor, 1, 100000);
 
         currentHealth -= finalDamage;
     }
 
-    int AbilityDamage(int power)
+    public int AbilityDamage(int power)
     {
-        float finalPower = (float)power / 100.0f;
-        int finalDamage = Mathf.FloorToInt(creatureData.attackDamage * finalPower);
+        int finalDamage = Mathf.FloorToInt(creatureData.attackDamage + power);
 
         return finalDamage;
     }
 
-    void ReceiveAbilityDamage(int damage, AttackData data)
+    public void ReceiveAbilityDamage(int damage, AttackData data)
     {
         int finalDamage = 0;
 
@@ -61,7 +63,7 @@ public class PieceStats : MonoBehaviour
             damageMod = 1;
         }
         
-        finalDamage = Mathf.Clamp(Mathf.FloorToInt(damage * damageMod) - resistance, 1, 100000);
+        finalDamage = Mathf.Clamp(damage - Mathf.FloorToInt(resistance / damageMod), 1, 100000);
 
         currentHealth -= finalDamage;
     }
