@@ -7,8 +7,7 @@ public class PieceStats : MonoBehaviour
     public AttackData attackData;
 
     int currentHealth;
-    //Todo: Make private
-    public int currentMana;
+    int currentMana;
 
     // Start is called before the first frame update
     void Start()
@@ -19,8 +18,7 @@ public class PieceStats : MonoBehaviour
         UpdateUI();
     }
 
-    // Todo: Make private
-    public void UpdateUI()
+    void UpdateUI()
     {
         float h = (float)currentHealth / (float)creatureData.health;
         float m = (float)currentMana / (float)creatureData.mana;
@@ -64,7 +62,8 @@ public class PieceStats : MonoBehaviour
         }
         
         finalDamage = Mathf.Clamp(damage - Mathf.FloorToInt(resistance / damageMod), 1, 100000);
-
         currentHealth -= finalDamage;
+
+        UpdateUI();
     }
 }

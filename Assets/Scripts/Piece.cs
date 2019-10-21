@@ -28,8 +28,6 @@ public class Piece : MonoBehaviour
         if (TurnManager.Instance.IsPieceTurn(turnPiece) && Input.GetKeyDown(KeyCode.Space))
         {
             gengarTest.ReceiveAbilityDamage(venusaurTest.AbilityDamage(venusaurTest.attackData.power), venusaurTest.attackData);
-            venusaurTest.currentMana += 20;
-            venusaurTest.UpdateUI();
         }
     }
 
