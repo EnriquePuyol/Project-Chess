@@ -7,6 +7,8 @@ public class PlayerManager : MonoBehaviour
 
     public int playerTurn;
 
+    private GameObject selectedPiece;
+
     private static PlayerManager instance;
 
     public static PlayerManager Instance
@@ -38,4 +40,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
+    public void SelectPiece(GameObject selPiece)
+    {
+        if(selectedPiece != null)
+            selectedPiece.GetComponent<Piece>().ToggleSelected(false);
+
+        selPiece.GetComponent<Piece>().ToggleSelected(true);
+        selectedPiece = selPiece;
+    }
 }

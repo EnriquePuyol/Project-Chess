@@ -6,19 +6,22 @@ public class Piece : MonoBehaviour
     // Current X,Y coords in the board
     Vector2 currentPos;
 
-    public CreatureData creatureData;
-
     int layerMask;
+    bool selected;
 
     public int turnPiece;
 
+    public CreatureData creatureData;
+
     public PieceStats venusaurTest;
     public PieceStats gengarTest;
+
 
     void Start()
     {
         currentPos.x = transform.position.x;
         currentPos.y = transform.position.z;
+        selected = false;
 
         BoardManager.Instance.SetStartOccupation(Mathf.FloorToInt(currentPos.x), Mathf.FloorToInt(currentPos.y));
     }
@@ -29,11 +32,20 @@ public class Piece : MonoBehaviour
         {
             gengarTest.ReceiveAbilityDamage(venusaurTest.AbilityDamage(venusaurTest.attackData.power), venusaurTest.attackData);
         }
+
+        if(selected)
+        {
+            ShowPossibleMovements();
+        }
+
     }
 
     private void OnMouseOver()
     {
-        ShowPossibleMovements();
+        if(Input.GetMouseButtonUp(1))
+        {
+            PlayerManager.Instance.SelectPiece(gameObject);
+        }
     }
 
     private void OnMouseDrag()
@@ -85,5 +97,10 @@ public class Piece : MonoBehaviour
     {
         Vector3 piecePos = new Vector3(currentPos.x, 0, currentPos.y) - PIECE_OFFSET;
         BoardManager.Instance.ShowPossibleMovements(piecePos, creatureData);
+    }
+
+    public void ToggleSelected(bool sel)
+    {
+        selected = sel;
     }
 }
