@@ -994,7 +994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef80234ef16d24dabfc12230535d3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 11400000, guid: a595d74302a91704789fa99d4f058a93, type: 2}
+  creatureData: {fileID: 11400000, guid: 2a69434fcb5b9374e814723519d2cc6c, type: 2}
   turnPiece: 1
 --- !u!114 &862135163
 MonoBehaviour:
@@ -1022,7 +1022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63e8d047c732fed498570c4d40f3d83d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  creatureData: {fileID: 11400000, guid: a595d74302a91704789fa99d4f058a93, type: 2}
+  creatureData: {fileID: 11400000, guid: 2a69434fcb5b9374e814723519d2cc6c, type: 2}
+  attackData: {fileID: 11400000, guid: 1e69b87d4cd8130488c9bb453b66bf01, type: 2}
 --- !u!1 &3035629754580217838
 GameObject:
   m_ObjectHideFlags: 0

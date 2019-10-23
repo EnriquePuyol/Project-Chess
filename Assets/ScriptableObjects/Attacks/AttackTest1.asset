@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10694c77ba8b4f64382b14a2ef8df2b5, type: 3}
-  m_Name: Diagonal_Test
+  m_Script: {fileID: 11500000, guid: dce49004a439d1b44b6b11c0649b6958, type: 3}
+  m_Name: AttackTest1
   m_EditorClassIdentifier: 
-  name: Diagonal Test
-  movementType: 2
-  movementLimit: 8
+  name: Test1
+  power: 50
+  thrownType: 0
+  abilityType: 0
+  flags: 0

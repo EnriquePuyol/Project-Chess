@@ -80,7 +80,7 @@ public class BoardManager : MonoBehaviour
         int currentX = (int)currentPos.x;
         int currentY = (int)currentPos.z;
 
-        if (data.movementType == CreatureData.MovementTypes.Cruceta)
+        if (data.movementType == CreatureData.MovementTypes.Cross)
         {
             int minX = (int)Mathf.Clamp(currentX - moveLimit, 0f, SIZE_X - 1);
             int maxX = (int)Mathf.Clamp(currentX + moveLimit, 0f, SIZE_X - 1);
@@ -143,7 +143,7 @@ public class BoardManager : MonoBehaviour
                 vertical += sum;
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Reina)
+        else if (data.movementType == CreatureData.MovementTypes.Queen)
         {
             int minX = (int)Mathf.Clamp(currentX - moveLimit, 0f, SIZE_X - 1);
             int maxX = (int)Mathf.Clamp(currentX + moveLimit, 0f, SIZE_X - 1);
@@ -201,7 +201,7 @@ public class BoardManager : MonoBehaviour
                 vertical += sum;
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Salto)
+        else if (data.movementType == CreatureData.MovementTypes.Jump)
         {
             int minX = (int)Mathf.Clamp(currentX - moveLimit, 0f, SIZE_X - 1);
             int maxX = (int)Mathf.Clamp(currentX + moveLimit, 0f, SIZE_X - 1);
@@ -242,7 +242,7 @@ public class BoardManager : MonoBehaviour
 
     public bool CheckCorrectMove(CreatureData data, int currentX, int currentY, int nextX, int nextY)
     {
-        if(data.movementType == CreatureData.MovementTypes.Cruceta)
+        if(data.movementType == CreatureData.MovementTypes.Cross)
         {
             if(currentX != nextX && currentY == nextY)
             {
@@ -288,7 +288,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Reina)
+        else if (data.movementType == CreatureData.MovementTypes.Queen)
         {
             if (currentX != nextX && currentY == nextY)
             {
@@ -331,7 +331,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Salto)
+        else if (data.movementType == CreatureData.MovementTypes.Jump)
         {
             int diffX = Mathf.Abs(currentX - nextX);
             int diffY = Mathf.Abs(currentY - nextY);
@@ -360,7 +360,7 @@ public class BoardManager : MonoBehaviour
 
     public bool CheckEmptyMovement(CreatureData data, int currentX, int currentY, int nextX, int nextY)
     {
-        if(data.movementType == CreatureData.MovementTypes.Cruceta)
+        if(data.movementType == CreatureData.MovementTypes.Cross)
         {
             if(currentX != nextX)
             {
@@ -464,7 +464,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Reina)
+        else if (data.movementType == CreatureData.MovementTypes.Queen)
         {
             if (currentX != nextX && currentY == nextY)
             {
@@ -565,7 +565,7 @@ public class BoardManager : MonoBehaviour
                 }
             }
         }
-        else if (data.movementType == CreatureData.MovementTypes.Salto)
+        else if (data.movementType == CreatureData.MovementTypes.Jump)
         {
             int diffX = nextX - currentX;
             int diffY = nextY - currentY;
