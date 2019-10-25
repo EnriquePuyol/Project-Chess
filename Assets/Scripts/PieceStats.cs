@@ -6,8 +6,10 @@ public class PieceStats : MonoBehaviour
     public CreatureData creatureData;
     public AttackData attackData;
 
-    int currentHealth;
-    int currentMana;
+    [HideInInspector]
+    public int currentHealth;
+    [HideInInspector]
+    public int currentMana;
 
     // Start is called before the first frame update
     void Start()

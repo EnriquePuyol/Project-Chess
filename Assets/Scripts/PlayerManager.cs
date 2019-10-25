@@ -47,5 +47,18 @@ public class PlayerManager : MonoBehaviour
 
         selPiece.GetComponent<Piece>().ToggleSelected(true);
         selectedPiece = selPiece;
+
+        PieceStats stats = selectedPiece.GetComponent<PieceStats>();
+
+        UiManager.Instance.Select(stats.creatureData.name, stats.currentHealth.ToString(), stats.currentMana.ToString());
     }
+
+    public void UnSelectPiece()
+    {
+        selectedPiece.GetComponent<Piece>().ToggleSelected(false);
+        selectedPiece = null;
+
+        UiManager.Instance.UnSelect();
+    }
+
 }
