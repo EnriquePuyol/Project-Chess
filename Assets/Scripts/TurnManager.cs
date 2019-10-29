@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class TurnManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class TurnManager : MonoBehaviour
     TurnPhases currentTurnPhase;
 
     public TextMeshProUGUI turnDetails;
+    public Button unselectButton;
 
     private static TurnManager instance;
 
@@ -45,6 +47,8 @@ public class TurnManager : MonoBehaviour
             currentTurn -= 1;
 
         currentTurnPhase = TurnPhases.MOVE;
+
+        unselectButton.gameObject.SetActive(true);
     }
 
     public bool IsPieceTurn(int pieceTurn)
@@ -63,6 +67,9 @@ public class TurnManager : MonoBehaviour
     public void NextTurnPhase()
     {
         currentTurnPhase++;
+
+        if (currentTurnPhase == TurnPhases.ATTACK)
+            unselectButton.gameObject.SetActive(false);
 
         if (currentTurnPhase == TurnPhases.END)
             ChangeTurn();
