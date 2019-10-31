@@ -42,7 +42,7 @@ public class Piece : MonoBehaviour
     {
         //ToggleUI(true);
 
-        if(Input.GetMouseButtonUp(1) && TurnManager.Instance.IsPieceTurn(turnPiece) && TurnManager.Instance.GetTurnPhase() == TurnManager.TurnPhases.MOVE)
+        if(Input.GetMouseButtonUp(0) && TurnManager.Instance.IsPieceTurn(turnPiece) && TurnManager.Instance.GetTurnPhase() == TurnManager.TurnPhases.MOVE)
         {
             PlayerManager.Instance.SelectPiece(gameObject);
         }
